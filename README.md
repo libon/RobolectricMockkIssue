@@ -49,6 +49,7 @@ Additional information:
 * Same behavior is observed using java 8 or java 14
 * Same behavior if mockk is used inside `setUp()` or inside the test method directly
 * Same behavior regardless of the value of the sdk in the `@Config(sdk=[??])` annotation in `testMockk2()`
+  - Exception: when running with java 14, and specifying `sdk=[29]`, both tests pass
 * Running `testMockk2()` in isolation works
 * Remove the `@Config(sdk=[28])` annotation from `testMockk2()` and both tests will pass
 * Both tests pass using robolectric 4.3.1 and java 8
