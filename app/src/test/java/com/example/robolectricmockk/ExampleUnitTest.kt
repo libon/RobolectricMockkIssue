@@ -1,5 +1,6 @@
 package com.example.robolectricmockk
 
+import io.mockk.mockk
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,7 +12,7 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun testMockk() {
+        val foo = mockk<Foo>(relaxed=true)
     }
 }
