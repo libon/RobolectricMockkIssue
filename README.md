@@ -1,6 +1,10 @@
 Sample project to reproduce mockk/robolectric incompatibility
 =============================================================
 
+Summary:
+--------
+Using `mockk(relaxed=true)` in a test `setUp()` results in a `ClassCastException`, when at least two test methods are run, and the second test has a `@Config(sdk=[??])` annotation.
+
 Steps to reproduce:
 ------------------
 * Run `./gradlew testDebugUnitTest`
@@ -43,4 +47,8 @@ Steps to reproduce:
 Additional information:
 -----------------------
 * Same behavior is observed using java 8 or java 14
+* Same behavior if mockk is used inside `setUp()` or inside the test method directly
+* Same behavior regardless of the value of the sdk in the `@Config(sdk=[??])` annotation in `testMockk2()`
+* Running `testMockk2()` in isolation works
+* Remove the `@Config(sdk=[28])` annotation from `testMockk2()` and both tests will pass
 * Both tests pass using robolectric 4.3.1 and java 8
